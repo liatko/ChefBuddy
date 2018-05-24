@@ -1,0 +1,127 @@
+<html>
+    <head>
+        <title>Chef Buddy</title>
+        <link rel="stylesheet" href="scripts/bootstrap-4.1.1-dist/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="css/theme.css">
+        <link rel="stylesheet" type="text/css" href="css/WhatYouHave.css">
+        <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
+        <script src="scripts/angular.min.js"></script>
+        <script src="scripts/jquery-3.3.1.slim.min.js" ></script>
+        <script src="scripts/popper.min.js"></script> 
+        <script src="scripts/bootstrap-4.1.1-dist/js/bootstrap.min.js" ></script>
+        <script src="scripts/underscore-min.js" ></script>
+    
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+        <script src="scripts/parser/papaparse.js"></script>
+        <script src="scripts/db.js"></script>
+
+    </head>
+    
+
+
+<body ng-app="shefBodyApp" ng-controller="list">
+    	<div id = "header">
+                <img src="images/header.jpeg">
+            </div>
+    
+    <div class="overlay"></div>
+    <div id="addProductPopup" class="popup">
+     <input type="text">   
+        <button type="button"  class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    {{productDropdownText}}
+                  </button>
+            <div class="dropdown-menu">
+                    <a ng-repeat="p in products" class="dropdown-item" ng-click="updateSelectedProduct(p)">{{p.name}}</a>
+            </div>
+        
+            <button type="button" id="btnAddProductToList" class="btn btn-primary disabled" ng-click="addProductToMyList()">Add To My List</button>
+        
+    </div>
+    
+    <div class="wrapper section" id="searchRecepies">
+        <h1>
+                מה יש לך במקרר?
+            </h1>
+        
+            <div class="row">
+                <div class="col-5"><input type="text" id="ddProduct" ng-model="filterProduct"  class="form-control" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" placeholder="בחר מוצר" >
+                    <div class="dropdown-menu">
+                            <a ng-repeat="p in products  | filter:filterProduct" class="dropdown-item" ng-click="updateSelectedProductNew(p)">{{p.name }}</a>
+                    </div>
+                    <button type="button"  class="btn btn-primary src-recepies" ng-click="findRecepies()">אז מה נאכל היום?</button>
+
+                </div>
+                <div class="col-7">
+                        <ul class="list-group" ng-if="myProducts">
+                                <li class="list-group-item" id="product{{$index}}" ng-repeat="product in myProducts">
+                                   <span> {{product.name}}</span>
+                                   <div>
+                                   <span class="glyphicon glyphicon-trash"></span>           </div>
+                                </li>
+                                
+                            </ul>
+                        
+                </div>
+            </div>
+
+                              
+            
+            <div id="noRecepiesErrorMessage">לא נמצאו מתכונים למוצרים אלו</div>      
+            
+    </div>  
+  
+
+  <div id="foundRecepies" class="section">
+        <h1>מתכונים מומלצים</h1>
+        <ul class="list-group" ng-if="recipesFound">
+            <li class="list-group-item" id="product{{$index}}" ng-repeat="recepy in recipesFound">
+                <div><a href="{{recepy.url}}" target="_blank"> {{recepy.name}}</a> </div>
+                <div>{{recepy.productsCount}}</div>
+            </li>
+        </ul>
+        <button type="button" id="btnResearch" class="btn btn-primary src-recepies" ng-click="research()">חפש מחדש</button>
+  </div>
+    <textarea id="inputProducts" placeholder="Input" style="display:none">
+id,name
+1,תירס
+2,חלב
+3,ביצים
+4,קוטג
+5,קמח
+6,פיתה
+7,גבינה צהובה
+8,חמאה
+9,עוף
+10,עגבניות
+11,חמצוצים</textarea>
+            
+            <textarea id="inputRecepies" placeholder="Input" style="display:none">
+id,name,url
+1,פשטידת תירס,https://www.bishulim.co.il/%D7%9E%D7%AA%D7%9B%D7%95%D7%9F/%D7%A4%D7%A9%D7%98%D7%99%D7%93%D7%AA-%D7%AA%D7%99%D7%A8%D7%A1-%D7%A7%D7%9C%D7%94-%D7%95%D7%98%D7%A2%D7%99%D7%9E%D7%94-0
+2,מרק תירס,http://www.10dakot.co.il/%D7%9E%D7%A8%D7%A7-%D7%AA%D7%99%D7%A8%D7%A1/
+3,פיצה פיתה,https://www.mako.co.il/food-cooking_magazine/flavors-bakery/Recipe-d1b8df3744a1741006.htm
+4,מוקפץ עוף,http://www.foodisgood.co.il/recipe/stir-fried-noodles/
+5,שקשוקה,http://www.10dakot.co.il/%D7%9E%D7%AA%D7%9B%D7%95%D7%9F-%D7%9C%D7%A9%D7%A7%D7%A9%D7%95%D7%A7%D7%94/</textarea>
+            
+            <textarea id="inputlk" placeholder="Input" style="display:none">
+recepieId,productId
+1,1
+1,2
+1,3
+1,4
+1,5
+2,1
+2,5
+3,6
+3,7
+3,10
+4,9
+5,3
+5,10</textarea>
+
+</body>
+<script src="scripts/search.js" ></script>
+<script>
+
+        </script>
+</html>

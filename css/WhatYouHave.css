@@ -1,0 +1,135 @@
+body{
+    direction: rtl;
+
+}
+.wrapper{
+    margin:20px 200px;
+}
+
+
+.btn-primary{
+    background-color: #01ae42;
+    border-color: #01ae42;
+    margin-top: 20px;
+}
+
+.btn-primary:hover{
+    background-color: #01ae42;
+    border-color: #01ae42;
+    opacity: 0.8;
+}
+.list-group-item
+{
+    text-align: center;
+}
+#addProductPopup{
+    display: none;
+    border: 1px solid #01ae42;
+    background-color: white;
+    height: 200px;
+    width:300px;
+    position: fixed;
+    z-index: 10;
+
+}
+
+
+.form-control,.src-recepies,.dropdown-item,.list-group-item{
+    font-size:1.3rem;
+    text-align: center;
+    border-color:  #1bf16c;
+    border-color:#9cd07a;
+    border-color:#badb9e;
+    border-color:#cbe3ae;
+    border-color:#01ae42;
+
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+
+.productWrapper .list-group-item{
+    height: 45px;
+}
+.form-control{
+border: 1px solid #01ae42;
+}
+.src-recepies{
+    width:100%;
+    margin-bottom: 20px;
+    margin-top: 0;
+}
+.dropdown-menu{
+    width:100%;
+}
+.disabled{
+ pointer-events: none;
+}
+.overlay {
+    position: fixed; /* Sit on top of the page content */
+    display: none; /* Hidden by default */
+    width: 100%; /* Full width (cover the whole page) */
+    height: 100%; /* Full height (cover the whole page) */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+    z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+    cursor: pointer; /* Add a pointer on hover */
+}
+
+
+#noRecepiesErrorMessage{
+    display: none;
+    background-color: #01ae42;
+    color: white;
+    font-size: 1.4rem;
+    margin: auto 200px;
+    text-align: center;
+}
+
+#buidlErrorMessage{
+  display: none;
+  background-color: #01ae42;
+  color: white;
+  font-size: 1.4rem;
+  margin: auto 200px;
+  text-align: center;
+}
+
+#noRecepiesErrorMessage.display,#buidlErrorMessage.display{
+    display: block;
+}
+
+.productWrapper{
+    max-height: 220px;
+    min-height: 220px;
+    background-color: white;
+    border: 1px solid #01ae42;
+}
+
+.list-group{
+    margin-bottom: 20px;
+    max-height: 220px;
+    min-height: 220px;
+    overflow: auto;
+}
+
+.dropdown-menu.show{
+    top:650px!important;
+    transform: translateY(-604px)!important;
+    width: 352px;
+    margin-left: 15px;
+    margin-left: 15px;
+    overflow: auto;
+    height: 175px;
+}
+
+.recipe-percent ,.recipe-name{
+    display: inline-block;
+}
+
+
+#contact{
+  font-size: 24px;
+}
